@@ -31,7 +31,8 @@ library
   build-depends:    base >= 4.6 && < 5
   hs-source-dirs:   src
   default-language: Haskell2010
-  extra-libraries:  pHash
+  pkgconfig-depends: pHash
+  -- extra-libraries: pHash
   if flag(lib-Werror)
     ghc-options: -Werror
 
@@ -42,13 +43,14 @@ test-suite spec
   main-is:          Test.hs
   default-language: Haskell2010
   hs-source-dirs:   src, test
-  extra-libraries:  pHash
   build-depends:    base >= 4.6 && < 5
-  build-depends:    tasty >= 0.7 && < 1.0
-  build-depends:    tasty-smallcheck >= 0.2 && < 1.0
-  build-depends:    tasty-hunit >= 0.4.1 && < 1.0
-  build-depends:    HUnit >= 1.2.5.2 && < 2.0
+  build-depends:    tasty >= 0.7
+  build-depends:    tasty-smallcheck >= 0.2
+  build-depends:    tasty-hunit >= 0.4.1
+  build-depends:    HUnit >= 1.2.5.2
   build-depends:    smallcheck
+  pkgconfig-depends: pHash
+  -- extra-libraries: pHash
   if flag(lib-Werror)
     ghc-options: -Werror
 
@@ -59,11 +61,12 @@ test-suite docs
   main-is:          DocTest.hs
   default-language: Haskell2010
   hs-source-dirs:   src, test
-  extra-libraries:  pHash
   ghc-options:      -threaded
   build-depends:    base >= 4.6 && < 5
-  build-depends:    doctest >= 0.9.10 && < 1.0
+  build-depends:    doctest >= 0.9.10
   build-depends:    phash
+  pkgconfig-depends: pHash
+  -- extra-libraries: pHash
 
 source-repository head
   Type:     git
